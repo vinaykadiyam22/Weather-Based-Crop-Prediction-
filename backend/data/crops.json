@@ -1,0 +1,325 @@
+{
+    "crops": [
+        {
+            "name": "Rice",
+            "local_name": "चावल / நெல் / వరి",
+            "soil_types": [
+                "Clay",
+                "Loamy",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Kharif",
+                "Rabi"
+            ],
+            "temperature_range": [
+                20,
+                35
+            ],
+            "rainfall_min": 1000,
+            "growing_duration": "120-150 days",
+            "states": [
+                "Punjab",
+                "Haryana",
+                "West Bengal",
+                "Andhra Pradesh",
+                "Tamil Nadu"
+            ]
+        },
+        {
+            "name": "Wheat",
+            "local_name": "गेहूं / கோதுமை / గోధుమ",
+            "soil_types": [
+                "Loamy",
+                "Clay",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Rabi"
+            ],
+            "temperature_range": [
+                12,
+                25
+            ],
+            "rainfall_min": 750,
+            "growing_duration": "110-130 days",
+            "states": [
+                "Punjab",
+                "Haryana",
+                "Uttar Pradesh",
+                "Madhya Pradesh"
+            ]
+        },
+        {
+            "name": "Cotton",
+            "local_name": "कपास / பருத்தி / పత్తి",
+            "soil_types": [
+                "Black Soil",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Kharif"
+            ],
+            "temperature_range": [
+                21,
+                30
+            ],
+            "rainfall_min": 500,
+            "growing_duration": "150-180 days",
+            "states": [
+                "Gujarat",
+                "Maharashtra",
+                "Andhra Pradesh",
+                "Telangana"
+            ]
+        },
+        {
+            "name": "Groundnut",
+            "local_name": "मूंगफली / நிலக்கடலை / వేరుశనగ",
+            "soil_types": [
+                "Sandy",
+                "Red Soil",
+                "Loamy"
+            ],
+            "seasons": [
+                "Kharif",
+                "Rabi",
+                "Summer"
+            ],
+            "temperature_range": [
+                20,
+                30
+            ],
+            "rainfall_min": 500,
+            "growing_duration": "100-150 days",
+            "states": [
+                "Gujarat",
+                "Andhra Pradesh",
+                "Tamil Nadu",
+                "Karnataka"
+            ]
+        },
+        {
+            "name": "Sugarcane",
+            "local_name": "गन्ना / கரும்பு / చెరకు",
+            "soil_types": [
+                "Loamy",
+                "Clay",
+                "Alluvial",
+                "Black Soil"
+            ],
+            "seasons": [
+                "Year-round"
+            ],
+            "temperature_range": [
+                21,
+                27
+            ],
+            "rainfall_min": 750,
+            "growing_duration": "12-18 months",
+            "states": [
+                "Uttar Pradesh",
+                "Maharashtra",
+                "Karnataka",
+                "Tamil Nadu"
+            ]
+        },
+        {
+            "name": "Maize",
+            "local_name": "मक्का / சோளம் / మొక్కజొన్న",
+            "soil_types": [
+                "Loamy",
+                "Sandy",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Kharif",
+                "Rabi"
+            ],
+            "temperature_range": [
+                21,
+                27
+            ],
+            "rainfall_min": 600,
+            "growing_duration": "80-110 days",
+            "states": [
+                "Karnataka",
+                "Andhra Pradesh",
+                "Rajasthan",
+                "Maharashtra"
+            ]
+        },
+        {
+            "name": "Pulses (Tur)",
+            "local_name": "अरहर / துவரை / కంది",
+            "soil_types": [
+                "Loamy",
+                "Clay",
+                "Black Soil"
+            ],
+            "seasons": [
+                "Kharif"
+            ],
+            "temperature_range": [
+                20,
+                30
+            ],
+            "rainfall_min": 600,
+            "growing_duration": "150-180 days",
+            "states": [
+                "Maharashtra",
+                "Madhya Pradesh",
+                "Karnataka",
+                "Uttar Pradesh"
+            ]
+        },
+        {
+            "name": "Jowar (Sorghum)",
+            "local_name": "ज्वार / சோளம் / జొన్న",
+            "soil_types": [
+                "Black Soil",
+                "Loamy",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Kharif",
+                "Rabi"
+            ],
+            "temperature_range": [
+                25,
+                32
+            ],
+            "rainfall_min": 450,
+            "growing_duration": "100-120 days",
+            "states": [
+                "Maharashtra",
+                "Karnataka",
+                "Rajasthan",
+                "Madhya Pradesh"
+            ]
+        },
+        {
+            "name": "Pearl Millet (Bajra)",
+            "local_name": "बाजरा / கம்பு / సజ్జ",
+            "soil_types": [
+                "Sandy",
+                "Loamy"
+            ],
+            "seasons": [
+                "Kharif"
+            ],
+            "temperature_range": [
+                25,
+                35
+            ],
+            "rainfall_min": 400,
+            "growing_duration": "70-90 days",
+            "states": [
+                "Rajasthan",
+                "Gujarat",
+                "Haryana",
+                "Uttar Pradesh"
+            ]
+        },
+        {
+            "name": "Tomato",
+            "local_name": "टमाटर / தக்காளி / టమోటా",
+            "soil_types": [
+                "Loamy",
+                "Sandy Loamy"
+            ],
+            "seasons": [
+                "Year-round"
+            ],
+            "temperature_range": [
+                20,
+                27
+            ],
+            "rainfall_min": 600,
+            "growing_duration": "60-90 days",
+            "states": [
+                "Karnataka",
+                "Andhra Pradesh",
+                "Madhya Pradesh",
+                "Gujarat"
+            ]
+        },
+        {
+            "name": "Potato",
+            "local_name": "आलू / உருளைக்கிழங்கு / బంగాళాదుంప",
+            "soil_types": [
+                "Loamy",
+                "Sandy Loamy"
+            ],
+            "seasons": [
+                "Rabi"
+            ],
+            "temperature_range": [
+                15,
+                20
+            ],
+            "rainfall_min": 500,
+            "growing_duration": "90-120 days",
+            "states": [
+                "Uttar Pradesh",
+                "West Bengal",
+                "Bihar",
+                "Punjab"
+            ]
+        },
+        {
+            "name": "Onion",
+            "local_name": "प्याज / வெங்காயம் / ఉల్లిపాయ",
+            "soil_types": [
+                "Loamy",
+                "Alluvial"
+            ],
+            "seasons": [
+                "Kharif",
+                "Rabi"
+            ],
+            "temperature_range": [
+                13,
+                24
+            ],
+            "rainfall_min": 650,
+            "growing_duration": "120-150 days",
+            "states": [
+                "Maharashtra",
+                "Karnataka",
+                "Gujarat",
+                "Madhya Pradesh"
+            ]
+        },
+        {
+            "name": "Chilli",
+            "local_name": "మిరియం",
+            "soil_types": ["Black Soil", "Red Soil", "Loamy"],
+            "seasons": ["Kharif", "Rabi"],
+            "temperature_range": [20, 30],
+            "rainfall_min": 600,
+            "growing_duration": "90-120 days",
+            "states": ["Andhra Pradesh", "Telangana", "Karnataka"]
+        },
+        {
+            "name": "Tobacco",
+            "local_name": "పొగాకు",
+            "soil_types": ["Sandy", "Loamy", "Red Soil"],
+            "seasons": ["Kharif", "Rabi"],
+            "temperature_range": [20, 35],
+            "rainfall_min": 500,
+            "growing_duration": "90-120 days",
+            "states": ["Andhra Pradesh", "Telangana", "Gujarat"]
+        },
+        {
+            "name": "Turmeric",
+            "local_name": "పసుపు",
+            "soil_types": ["Loamy", "Red Soil", "Alluvial"],
+            "seasons": ["Kharif"],
+            "temperature_range": [20, 30],
+            "rainfall_min": 1500,
+            "growing_duration": "7-9 months",
+            "states": ["Andhra Pradesh", "Tamil Nadu", "Telangana"]
+        }
+    ]
+}
