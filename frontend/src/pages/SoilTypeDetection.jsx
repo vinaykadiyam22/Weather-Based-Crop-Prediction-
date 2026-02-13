@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { getEffectiveLanguage } from '../i18n'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import { motion } from 'framer-motion'
@@ -39,7 +40,7 @@ function SoilTypeDetection({ user, onLogout, onUserUpdate }) {
     setLoading(true)
     setError('')
     try {
-      const res = await axios.post('/api/soil/select-type', { user_id: user.id, soil_type: selectedSoilType, location })
+      const res = await axios.post('/api/soil/select-type', { user_id: user.id, soil_type: selectedSoilType, location, language: getEffectiveLanguage(user) })
       setResult(res.data)
     } catch (err) {
       setError(err.response?.data?.detail || 'Failed to get soil information')
@@ -56,7 +57,7 @@ function SoilTypeDetection({ user, onLogout, onUserUpdate }) {
       const fd = new FormData()
       fd.append('image', image)
       fd.append('user_id', user?.id || '')
-      fd.append('language', user?.language || 'en')
+      fd.append('language', getEffectiveLanguage(user))
       fd.append('location', location)
       const res = await axios.post('/api/soil/detect-from-image', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
       setResult(res.data)
@@ -178,7 +179,7 @@ function SoilTypeDetection({ user, onLogout, onUserUpdate }) {
                 </div>
                 <div className="advisory-section" style={{ marginTop: 'var(--space-6)' }}>
                   <h3>{t('common.aiAdvisory')}</h3>
-                  <AdvisoryMarkdown content={result.explanation} className="gemini-advisory advisory-content" language={user?.language} />
+                  <AdvisoryMarkdown content={result.explanation} className="gemini-advisory advisory-content" language={getEffectiveLanguage(user)} />
                 </div>
               </motion.div>
             )}

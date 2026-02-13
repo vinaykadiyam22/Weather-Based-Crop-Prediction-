@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
+import { getEffectiveLanguage } from '../i18n'
 import { useDropzone } from 'react-dropzone'
 import axios from 'axios'
 import { motion } from 'framer-motion'
@@ -37,7 +38,7 @@ function DiseaseDetection({ user, onLogout, onUserUpdate }) {
       const fd = new FormData()
       fd.append('image', image)
       fd.append('user_id', user?.id || '')
-      fd.append('language', user?.language || 'en')
+      fd.append('language', getEffectiveLanguage(user))
       fd.append('send_email', 'true')
       const res = await axios.post('/api/disease/detect', fd, { headers: { 'Content-Type': 'multipart/form-data' } })
       setResult(res.data)
@@ -113,7 +114,7 @@ function DiseaseDetection({ user, onLogout, onUserUpdate }) {
                 </div>
                 <div className="advisory-section">
                   <h3>{t('common.aiAdvisory')}</h3>
-                  <AdvisoryMarkdown content={result.advisory} className="advisory-content" language={user?.language} />
+                  <AdvisoryMarkdown content={result.advisory} className="advisory-content" language={getEffectiveLanguage(user)} />
                 </div>
                 <button onClick={() => { setResult(null); setImage(null); setPreview(null); }} className="btn btn-outline" style={{ marginTop: 'var(--space-6)' }}>
                   {t('disease.analyzeAnother')}

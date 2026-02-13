@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
+import { getEffectiveLanguage } from '../i18n'
 import { motion } from 'framer-motion'
 import AppLayout from '../components/AppLayout'
 import AdvisoryMarkdown from '../components/AdvisoryMarkdown'
@@ -52,7 +53,8 @@ function SoilAnalysis({ user, onLogout, onUserUpdate }) {
         potassium: parseFloat(formData.potassium),
         ph: parseFloat(formData.ph),
         organic_matter: formData.organic_matter ? parseFloat(formData.organic_matter) : null,
-        location: formData.location
+        location: formData.location,
+        language: getEffectiveLanguage(user)
       })
       setResult(res.data)
       axios.get(`/api/soil/history/${user.id}`).then(r => setHistory(r.data.analyses || []))
@@ -191,7 +193,7 @@ function SoilAnalysis({ user, onLogout, onUserUpdate }) {
                 </div>
                 <div className="advisory-section">
                   <h3>{t('common.aiAdvisory')}</h3>
-                  <AdvisoryMarkdown content={result.explanation} className="gemini-advisory advisory-content" language={user?.language} />
+                  <AdvisoryMarkdown content={result.explanation} className="gemini-advisory advisory-content" language={getEffectiveLanguage(user)} />
                 </div>
               </motion.div>
             )}

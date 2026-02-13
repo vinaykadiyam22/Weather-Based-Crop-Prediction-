@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
+import { getEffectiveLanguage } from '../i18n'
 import { motion } from 'framer-motion'
 import AppLayout from '../components/AppLayout'
 import AdvisoryMarkdown from '../components/AdvisoryMarkdown'
@@ -27,7 +28,7 @@ function CropRecommendation({ user, onLogout, onUserUpdate }) {
         ...formData,
         temperature: formData.temperature ? parseFloat(formData.temperature) : null,
         user_id: user?.id || null,
-        language: user?.language || 'en'
+        language: getEffectiveLanguage(user)
       })
       setResult(res.data)
     } catch {
@@ -99,7 +100,7 @@ function CropRecommendation({ user, onLogout, onUserUpdate }) {
                     </div>
                     <div className="advisory-section" style={{ marginTop: 'var(--space-6)' }}>
                       <h3>{t('common.aiAdvisory')}</h3>
-                      <AdvisoryMarkdown content={result.explanation} className="advisory-content" language={user?.language} />
+                      <AdvisoryMarkdown content={result.explanation} className="advisory-content" language={getEffectiveLanguage(user)} />
                     </div>
                   </>
                 ) : (

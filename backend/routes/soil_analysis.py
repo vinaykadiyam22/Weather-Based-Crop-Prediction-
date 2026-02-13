@@ -68,6 +68,7 @@ class SoilTypeSelectionRequest(BaseModel):
     user_id: int
     soil_type: str  # Manual selection from dropdown
     location: str = None
+    language: str = None  # Override user language for advisory generation
 
 class SoilTypeResponse(BaseModel):
     soil_type: str
@@ -129,7 +130,7 @@ def select_soil_type(request: SoilTypeSelectionRequest, db: Session = Depends(ge
     })
 
     user = db.query(User).filter(User.id == request.user_id).first() if request.user_id else None
-    lang = (user.language if user and user.language else "en")
+    lang = (request.language or (user.language if user and user.language else None)) or "en"
 
     # Generate Gemini explanation (with user language)
     explanation = generate_soil_type_explanation(
@@ -153,6 +154,7 @@ class SoilAnalysisRequest(BaseModel):
     ph: float
     organic_matter: float = None
     location: str = None
+    language: str = None  # Override user language for advisory generation
 
 class SoilAnalysisResponse(BaseModel):
     analysis_id: int
@@ -192,7 +194,7 @@ def analyze_soil(request: SoilAnalysisRequest, db: Session = Depends(get_db)):
         fertilizers.append("Sulfur or Organic matter (to decrease pH)")
 
     user = db.query(User).filter(User.id == request.user_id).first() if request.user_id else None
-    lang = (user.language if user and user.language else "en")
+    lang = (request.language or (user.language if user and user.language else None)) or "en"
 
     # Generate Gemini explanation (with user language)
     explanation = generate_soil_analysis_explanation(

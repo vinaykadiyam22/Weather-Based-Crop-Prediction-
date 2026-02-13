@@ -4,14 +4,14 @@ import { FiMenu, FiX, FiLogOut } from 'react-icons/fi'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
-import i18n, { SUPPORTED_LANGS, setStoredLanguage } from '../i18n'
+import i18n, { SUPPORTED_LANGS, setStoredLanguage, getStoredLanguage } from '../i18n'
 import './AppLayout.css'
 
 function AppLayout({ children, user, onLogout, onUserUpdate }) {
   const { t } = useTranslation()
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const currentLang = user?.language || (typeof window !== 'undefined' ? localStorage.getItem('app_language') || 'en' : 'en')
+  const currentLang = i18n.language || user?.language || (typeof window !== 'undefined' ? getStoredLanguage() || 'en' : 'en')
 
   const handleLanguageChange = async (lang) => {
     if (user?.id && onUserUpdate) {

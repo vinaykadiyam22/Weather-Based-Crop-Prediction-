@@ -28,6 +28,11 @@ export function setStoredLanguage(lang) {
   localStorage.setItem(LANG_KEY, lang)
 }
 
+/** Use for API calls: prefers current UI language (i18n) so generated content matches selected language. */
+export function getEffectiveLanguage(user) {
+  return i18n.language || user?.language || getStoredLanguage() || 'en'
+}
+
 i18n
   .use(initReactI18next)
   .init({

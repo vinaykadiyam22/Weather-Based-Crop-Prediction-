@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import { getEffectiveLanguage } from '../i18n'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import AppLayout from '../components/AppLayout'
@@ -71,7 +72,7 @@ function AlertDetail({ user, onLogout, onUserUpdate }) {
             {alert.recommendations && (
               <div className="advisory-section" style={{ marginTop: 'var(--space-6)' }}>
                 <h3>{t('common.aiAdvisory')}</h3>
-                <AdvisoryMarkdown content={alert.recommendations} className="advisory-content" language={user?.language} />
+                <AdvisoryMarkdown content={alert.recommendations} className="advisory-content" language={getEffectiveLanguage(user)} />
               </div>
             )}
             <p style={{ marginTop: 'var(--space-6)', fontSize: 'var(--text-sm)', color: 'var(--color-text-tertiary)' }}>
