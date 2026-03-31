@@ -14,16 +14,15 @@ MODEL_DIR = Path(__file__).parent.parent / "ml_models" / "plant_disease"
 MODEL_PATH = MODEL_DIR / "mobilenetv2_plant.pth"
 CLASS_NAMES_PATH = MODEL_DIR / "class_names.json"
 
-# Try PyTorch imports
+# Heavy imports moved inside functions for Deep Lazy Loading to save memory on Render
+TORCH_AVAILABLE = True
 try:
-    import torch
-    from torchvision import models, transforms
-    from PIL import Image
-    import numpy as np
-    TORCH_AVAILABLE = True
-except ImportError:
+    # Check if torch is installed without importing yet
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        TORCH_AVAILABLE = False
+except Exception:
     TORCH_AVAILABLE = False
-    print("[DISEASE] PyTorch not installed - pip install torch torchvision")
 
 
 def _load_class_names() -> list:
@@ -73,7 +72,10 @@ class DiseaseDetectionModel:
             return
             
         try:
-            print("[DISEASE] Loading MobileNetV2 model (Lazy Loading)...")
+            print("[DISEASE] Importing PyTorch (Final Stage Lazy Loading)...")
+            import torch
+            from torchvision import models, transforms
+            
             # Build model architecture
             model = models.mobilenet_v2(weights=None)
             model.classifier[1] = torch.nn.Sequential(
@@ -105,6 +107,8 @@ class DiseaseDetectionModel:
             return self._mock_prediction()
             
         try:
+            import torch
+            from PIL import Image
             # Preprocessing
             image = Image.open(io.BytesIO(image_bytes))
             if image.mode != "RGB":
