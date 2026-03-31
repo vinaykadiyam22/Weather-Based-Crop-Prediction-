@@ -57,24 +57,30 @@ class DiseaseDetectionModel:
         self.model = None
         self.class_names = _load_class_names()
         self.transform = None
-        self._load_model()
+        # Removed _load_model() from __init__ for lazy loading
 
-    def _load_model(self):
-        """Load PyTorch MobileNetV2 model."""
-        if not TORCH_AVAILABLE:
+    def _ensure_model_loaded(self):
+        """Lazy load the PyTorch MobileNetV2 model only when needed."""
+        if self.model is not None:
             return
+            
+        if not TORCH_AVAILABLE:
+            print("[DISEASE] PyTorch not available. Using mock mode.")
+            return
+            
         if not MODEL_PATH.exists():
             print(f"[DISEASE] Model not found at {MODEL_PATH}")
             return
+            
         try:
-            # Build model architecture (same as training - Daksh159/plant-disease-mobilenetv2)
+            print("[DISEASE] Loading MobileNetV2 model (Lazy Loading)...")
+            # Build model architecture
             model = models.mobilenet_v2(weights=None)
             model.classifier[1] = torch.nn.Sequential(
                 torch.nn.Dropout(0.2),
                 torch.nn.Linear(model.classifier[1].in_features, 38),
             )
             checkpoint = torch.load(MODEL_PATH, map_location="cpu")
-            # Handle both state_dict and full model save
             state = checkpoint.get("state_dict", checkpoint) if isinstance(checkpoint, dict) else checkpoint
             if hasattr(state, "state_dict"):
                 state = state.state_dict()
@@ -91,34 +97,30 @@ class DiseaseDetectionModel:
             print(f"[DISEASE] Model load error: {e}")
             self.model = None
 
-    def preprocess_image(self, image_bytes: bytes):
-        """Preprocess image for model input."""
-        image = Image.open(io.BytesIO(image_bytes))
-        if image.mode != "RGB":
-            image = image.convert("RGB")
-        image = self.transform(image)
-        return image.unsqueeze(0)
-
     def predict(self, image_bytes: bytes) -> Tuple[str, str, float, dict]:
-        """
-        Predict disease from image.
-        Returns: (crop_name, disease_name, confidence, all_predictions)
-        """
+        """Predict disease after ensuring model is loaded."""
+        self._ensure_model_loaded()
+        
         if self.model is None:
             return self._mock_prediction()
-
+            
         try:
-            x = self.preprocess_image(image_bytes)
+            # Preprocessing
+            image = Image.open(io.BytesIO(image_bytes))
+            if image.mode != "RGB":
+                image = image.convert("RGB")
+            x = self.transform(image).unsqueeze(0)
+            
             with torch.no_grad():
                 logits = self.model(x)
                 probs = torch.softmax(logits, dim=1)[0]
                 idx = probs.argmax().item()
                 confidence = float(probs[idx])
+            
             full_name = self.class_names[idx] if idx < len(self.class_names) else self.class_names[0]
             crop_name, disease_name = _parse_class_name(full_name)
             all_predictions = {
-                self.class_names[i]: float(probs[i]) if i < len(probs) else 0.0
-                for i in range(min(len(self.class_names), len(probs)))
+                self.class_names[i]: float(probs[i]) for i in range(min(len(self.class_names), len(probs)))
             }
             return crop_name, disease_name, confidence, all_predictions
         except Exception as e:
