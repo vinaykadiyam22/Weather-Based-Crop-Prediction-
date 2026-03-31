@@ -1,0 +1,26 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: smart-crop-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        value: sqlite:///./crop_advisory.db
+      - key: PYTHON_VERSION
+        value: 3.11.10
+
+  # Frontend Static Site
+  - type: web
+    name: smart-crop-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://smart-crop-backend.onrender.com
