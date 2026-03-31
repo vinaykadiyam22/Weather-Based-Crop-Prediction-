@@ -12,6 +12,7 @@ function Register() {
     name: '',
     email: '',
     phone: '',
+    password: '',
     location: 'Andhra Pradesh',
     language: 'te'
   })
@@ -123,6 +124,20 @@ function Register() {
                 <option value="Eluru" />
                 <option value="Ongole" />
               </datalist>
+            </div>
+
+            <div className="form-group">
+              <label className="form-label">{t('auth.password')}</label>
+              <input
+                type="password"
+                name="password"
+                className="form-input"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder={t('auth.passwordPlaceholder')}
+                required
+                minLength={6}
+              />
             </div>
 
             <div className="form-group">

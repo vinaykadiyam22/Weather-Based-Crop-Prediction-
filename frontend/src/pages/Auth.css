@@ -4,7 +4,10 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-6);
-  background: linear-gradient(180deg, #f0fdfa 0%, #f8fafc 100%);
+  background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)), url('../assets/crop-bg-1.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .auth-container {
@@ -13,11 +16,12 @@
 }
 
 .auth-card {
-  background: var(--color-surface);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
   padding: var(--space-8);
   border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .auth-title {
@@ -49,40 +53,7 @@
   text-decoration: underline;
 }
 
-.method-selector {
-  display: flex;
-  gap: var(--space-2);
-}
 
-.method-btn {
-  flex: 1;
-  padding: var(--space-3);
-  font-family: inherit;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  border: 1px solid #e2e8f0;
-  background: var(--color-surface);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all var(--duration-fast);
-}
-
-.method-btn:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.method-btn.active {
-  background: var(--color-primary-muted);
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.otp-input {
-  font-size: 1.5rem;
-  letter-spacing: 0.5em;
-  text-align: center;
-}
 
 .form-hint {
   display: block;

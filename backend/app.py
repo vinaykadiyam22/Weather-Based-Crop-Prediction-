@@ -5,6 +5,8 @@ from config import get_settings
 
 # Import routes
 from routes import auth, disease_detection, soil_analysis, crop_recommendation, weather, market_prices
+from routes import map_intelligence
+from routes import admin as admin_routes
 
 settings = get_settings()
 
@@ -45,6 +47,8 @@ app.include_router(soil_analysis.router)
 app.include_router(crop_recommendation.router)
 app.include_router(weather.router)
 app.include_router(market_prices.router)
+app.include_router(map_intelligence.router)
+app.include_router(admin_routes.router)
 
 # Root endpoint
 @app.get("/")

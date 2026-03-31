@@ -14,6 +14,8 @@ import SoilTypeDetection from './pages/SoilTypeDetection'
 import MarketPrices from './pages/MarketPrices'
 import AlertDetail from './pages/AlertDetail'
 import AlertBanner from './components/AlertBanner'
+import AdminLogin from './pages/AdminLogin'
+import AdminDashboard from './pages/AdminDashboard'
 
 function App() {
     const [user, setUser] = useState(null)
@@ -83,6 +85,10 @@ function App() {
                     element={user ? <MarketPrices user={user} onLogout={handleLogout} onUserUpdate={handleLogin} /> : <Navigate to="/login" />}
                 />
                 <Route path="/alert/:id" element={user ? <AlertDetail user={user} onLogout={handleLogout} onUserUpdate={handleLogin} /> : <Navigate to="/login" />} />
+                
+                {/* Admin routes */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/dashboard" element={<AdminDashboard />} />
             </Routes>
         </Router>
     )

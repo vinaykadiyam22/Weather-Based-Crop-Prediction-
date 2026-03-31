@@ -77,8 +77,10 @@
     "creatingAccount": "கண்கள் உருவாக்குகிறது...",
     "dontHaveAccount": "கண்கள் இல்லையா?",
     "register": "பதிவு செய்",
-    "alreadyHaveAccount": "ஏற்கனவே கண்கள் உள்ளதா?",
-    "signIn": "உள்நுழை"
+    "alreadyHaveAccount": "ஏற்கனவே கணக்கு உள்ளதா?",
+    "signIn": "உள்நுழை",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "வரவேற்பு, {{name}}",
@@ -96,7 +98,8 @@
     "soilType": "மண் வகை",
     "soilTypeDesc": "மண் பண்புகள்",
     "marketPrices": "சந்தை விலைகள்",
-    "marketPricesDesc": "விலை போக்குகள்"
+    "marketPricesDesc": "விலை போக்குகள்",
+    "regionAnalytics": "மண்டல பகுப்பாய்வு (Region Analytics)"
   },
   "disease": {
     "title": "நோய் அடையாளம்",

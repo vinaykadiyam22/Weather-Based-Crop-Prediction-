@@ -88,20 +88,64 @@ function CropRecommendation({ user, onLogout, onUserUpdate }) {
                   <>
                     <div className="crops-grid" style={{ marginTop: 'var(--space-6)' }}>
                       {result.recommended_crops.map((crop, i) => (
-                        <div key={i} className="crop-card">
-                          <h3>{crop.name}</h3>
-                          <p className="local-name" style={{ color: 'var(--color-text-tertiary)', fontSize: 'var(--text-sm)' }}>{crop.local_name}</p>
-                          <div className="crop-details">
-                            <div><span className="param-label">{t('crop.duration')}</span><br /><span className="param-value">{crop.growing_duration}</span></div>
-                            <div><span className="param-label">{t('crop.minRainfall')}</span><br /><span className="param-value">{crop.rainfall_min}mm</span></div>
+                        <div key={i} className="crop-card-enhanced">
+                          <div className="crop-image-container">
+                            <img 
+                              src={crop.image ? `/src/assets/crops/${crop.image}` : `https://placehold.co/400x300/1e40af/ffffff?text=${crop.name}`} 
+                              alt={crop.name} 
+                              className="crop-image"
+                            />
+                            <div className="crop-score-badge">{crop.score}/10</div>
+                          </div>
+                          <div className="crop-info">
+                            <h3>{crop.name}</h3>
+                            <p className="local-name">{crop.local_name}</p>
+                            <div className="crop-details">
+                              <div className="detail-item">
+                                <span className="param-label">{t('crop.duration')}</span>
+                                <span className="param-value">{crop.growing_duration}</span>
+                              </div>
+                              <div className="detail-item">
+                                <span className="param-label">{t('crop.minRainfall')}</span>
+                                <span className="param-value">{crop.rainfall_min}mm</span>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       ))}
                     </div>
-                    <div className="advisory-section" style={{ marginTop: 'var(--space-6)' }}>
-                      <h3>{t('common.aiAdvisory')}</h3>
+                    <div className="advisory-section" style={{ marginTop: 'var(--space-8)' }}>
+                      <h3 style={{ marginBottom: 'var(--space-4)', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        🛡️ {t('common.aiAdvisory')}
+                      </h3>
                       <AdvisoryMarkdown content={result.explanation} className="advisory-content" language={getEffectiveLanguage(user)} />
                     </div>
+
+                    {/* Prediction Analysis Section */}
+                    {result.analysis_context && (
+                      <div className="prediction-analysis" style={{ marginTop: 'var(--space-8)', padding: 'var(--space-6)', background: 'rgba(255,255,255,0.03)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.08)' }}>
+                        <h3 style={{ marginBottom: 'var(--space-4)', fontSize: '18px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                          📊 {t('crop.predictionAnalysis')}
+                        </h3>
+                        <div className="analysis-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+                          <div className="analysis-card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px' }}>
+                            <h4 style={{ color: '#94a3b8', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>{t('crop.soilFactor')}</h4>
+                            <p style={{ margin: 0, fontWeight: 600 }}>{result.analysis_context.soil?.soil_type || formData.soil_type}</p>
+                            <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>{t('crop.soilCondition')}: {result.analysis_context.soil?.soil_health || 'Normal'}</p>
+                          </div>
+                          <div className="analysis-card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px' }}>
+                            <h4 style={{ color: '#94a3b8', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>{t('crop.weatherFactor')}</h4>
+                            <p style={{ margin: 0, fontWeight: 600 }}>{result.analysis_context.weather?.season || 'Current Season'}</p>
+                            <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>{t('crop.avgTemp')}: {result.analysis_context.weather?.temperature_c || formData.temperature || '--'}°C</p>
+                          </div>
+                          <div className="analysis-card" style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '12px' }}>
+                            <h4 style={{ color: '#94a3b8', fontSize: '12px', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>{t('crop.marketFactor')}</h4>
+                            <p style={{ margin: 0, fontWeight: 600 }}>{t('crop.marketTrendStable')}</p>
+                            <p style={{ margin: '4px 0 0', fontSize: '13px', color: '#64748b' }}>{t('crop.marketAnalysisDesc')}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </>
                 ) : (
                   <p style={{ marginTop: 'var(--space-4)' }}>{t('crop.noRecommendations')}</p>

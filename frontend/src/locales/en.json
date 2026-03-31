@@ -1,5 +1,5 @@
 {
-  "brand": "Crop Advisory",
+  "brand": "Crop Recommendation System",
   "common": {
     "back": "Back",
     "backToDashboard": "Back to Dashboard",
@@ -27,7 +27,7 @@
     "home": "Home"
   },
   "landing": {
-    "title": "AI-Powered Agricultural Intelligence",
+    "title": "Weather Based Crop Recommendation System",
     "subtitle": "Smart crop recommendations, live Andhra Pradesh weather, mandi prices, and disease detection—built for farmers in Andhra Pradesh.",
     "startFree": "Start Free",
     "signIn": "Sign In",
@@ -78,7 +78,9 @@
     "dontHaveAccount": "Don't have an account?",
     "register": "Register",
     "alreadyHaveAccount": "Already have an account?",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "Welcome, {{name}}",
@@ -92,11 +94,12 @@
     "weatherAlerts": "Weather & Alerts",
     "weatherAlertsDesc": "Climate updates",
     "diseaseDetection": "Pest & Disease Detection",
-    "diseaseDetectionDesc": "AI-powered scan",
-    "soilType": "Soil Type",
-    "soilTypeDesc": "Soil characteristics",
-    "marketPrices": "Market Prices",
-    "marketPricesDesc": "Price trends"
+    "diseaseDetectionDesc": "Identify crop diseases from photos",
+    "soilType": "Soil Type Detection",
+    "soilTypeDesc": "Determine soil type from images",
+    "marketPrices": "Live Market Prices",
+    "marketPricesDesc": "Check current agricultural commodity prices",
+    "regionAnalytics": "Region Analytics"
   },
   "disease": {
     "title": "Disease Detection",
@@ -130,7 +133,15 @@
     "duration": "Duration",
     "minRainfall": "Min Rainfall",
     "noRecommendations": "No recommendations for your conditions. Try different parameters.",
-    "tryDifferent": "Try Different Conditions"
+    "tryDifferent": "Try Different Conditions",
+    "predictionAnalysis": "Prediction Analysis",
+    "soilFactor": "Soil Factor",
+    "soilCondition": "Soil Condition",
+    "weatherFactor": "Weather Factor",
+    "avgTemp": "Avg Temp",
+    "marketFactor": "Market Factor",
+    "marketTrendStable": "Stable / Increasing",
+    "marketAnalysisDesc": "Market analysis for your state and crop."
   },
   "soil": {
     "title": "Soil Analysis",

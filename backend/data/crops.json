@@ -23,8 +23,15 @@
                 "Haryana",
                 "West Bengal",
                 "Andhra Pradesh",
-                "Tamil Nadu"
-            ]
+                "Tamil Nadu",
+                "Telangana",
+                "Maharashtra",
+                "Karnataka",
+                "Bihar",
+                "Uttar Pradesh",
+                "India"
+            ],
+            "image": "rice.png"
         },
         {
             "name": "Wheat",
@@ -47,8 +54,10 @@
                 "Punjab",
                 "Haryana",
                 "Uttar Pradesh",
-                "Madhya Pradesh"
-            ]
+                "Madhya Pradesh",
+                "India"
+            ],
+            "image": "wheat.png"
         },
         {
             "name": "Cotton",
@@ -70,8 +79,10 @@
                 "Gujarat",
                 "Maharashtra",
                 "Andhra Pradesh",
-                "Telangana"
-            ]
+                "Telangana",
+                "India"
+            ],
+            "image": "cotton.png"
         },
         {
             "name": "Groundnut",
@@ -97,7 +108,8 @@
                 "Andhra Pradesh",
                 "Tamil Nadu",
                 "Karnataka"
-            ]
+            ],
+            "image": "groundnut.png"
         },
         {
             "name": "Sugarcane",

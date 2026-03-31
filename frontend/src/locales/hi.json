@@ -77,8 +77,10 @@
     "creatingAccount": "खाता बना रहे हैं...",
     "dontHaveAccount": "खाता नहीं है?",
     "register": "रजिस्टर करें",
-    "alreadyHaveAccount": "पहले से खाता है?",
-    "signIn": "साइन इन"
+    "alreadyHaveAccount": "क्या आपका पहले से खाता है?",
+    "signIn": "साइन इन करें",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "स्वागत है, {{name}}",
@@ -92,11 +94,29 @@
     "weatherAlerts": "मौसम और अलर्ट",
     "weatherAlertsDesc": "जलवायु अपडेट",
     "diseaseDetection": "कीट और रोग पहचान",
-    "diseaseDetectionDesc": "AI-संचालित स्कैन",
-    "soilType": "मृदा प्रकार",
-    "soilTypeDesc": "मृदा विशेषताएं",
-    "marketPrices": "बाजार कीमतें",
-    "marketPricesDesc": "कीमत रुझान"
+    "diseaseDetectionDesc": "फ़ोटो से फ़सल की बीमारियों की पहचान करें",
+    "soilType": "मिट्टी के प्रकार की पहचान",
+    "soilTypeDesc": "छवियों से मिट्टी का प्रकार निर्धारित करें",
+    "marketPrices": "लाइव बाज़ार मूल्य",
+    "marketPricesDesc": "वर्तमान कृषि वस्तुओं की कीमतों की जाँच करें",
+    "regionAnalytics": "क्षेत्र विश्लेषण (Region Analytics)"
+  },
+  "footer": {
+    "title": "रोग पहचान",
+    "subtitle": "AI-संचालित रोग पहचान के लिए फसल छवि अपलोड करें",
+    "uploadFirst": "पहले एक छवि अपलोड करें",
+    "dragDrop": "खींचें और छोड़ें या चुनने के लिए क्लिक करें",
+    "dropHere": "यहां छोड़ें",
+    "clickReplace": "बदलने के लिए क्लिक या खींचें",
+    "jpgPng": "JPG, PNG",
+    "analyze": "विश्लेषण करें",
+    "analyzing": "विश्लेषण कर रहे हैं...",
+    "healthyCrop": "स्वस्थ फसल",
+    "diseaseDetected": "रोग पाया गया",
+    "detectedCrop": "पाया गया फसल",
+    "identifiedCondition": "पहचानी गई स्थिति",
+    "predictionAccuracy": "पूर्वानुमान सटीकता",
+    "analyzeAnother": "अन्य विश्लेषण करें"
   },
   "disease": {
     "title": "रोग पहचान",
@@ -130,7 +150,15 @@
     "duration": "अवधि",
     "minRainfall": "न्यूनतम वर्षा",
     "noRecommendations": "आपकी स्थितियों के लिए कोई सिफारिश नहीं। अलग पैरामीटर आज़माएं।",
-    "tryDifferent": "अलग स्थितियां आज़माएं"
+    "tryDifferent": "अलग स्थितियां आज़माएं",
+    "predictionAnalysis": "पूर्वानुमान विश्लेषण",
+    "soilFactor": "मिट्टी कारक",
+    "soilCondition": "मिट्टी की स्थिति",
+    "weatherFactor": "मौसम कारक",
+    "avgTemp": "औसत तापमान",
+    "marketFactor": "बाजार कारक",
+    "marketTrendStable": "स्थिर / बढ़ता हुआ",
+    "marketAnalysisDesc": "आपके राज्य और फसल के लिए बाजार विश्लेषण।"
   },
   "soil": {
     "title": "मृदा विश्लेषण",

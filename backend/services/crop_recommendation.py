@@ -159,29 +159,55 @@ def get_crop_recommendations(
                 "soil_health": latest.soil_health,
             })
 
-    # 2. Fetch weather forecast
+    # 2. Resolve state for more accurate state-level matching
+    state = _resolve_state(location)
+
+    # 3. Fetch weather forecast
     weather_forecast = _get_weather_forecast_summary(location)
 
-    # 3. Resolve temperature from forecast if not provided
+    # 4. Resolve temperature from forecast if not provided
     if temperature is None and weather_forecast.get("next_3_days", {}).get("avg_temp_c"):
         temperature = weather_forecast["next_3_days"]["avg_temp_c"]
 
-    # 4. Filter crops by soil, location, season, temperature
+    # 5. Filter crops by soil, location, season, temperature, and weather factors
     candidates = []
+    forecast_rain = weather_forecast.get("next_3_days", {}).get("total_rain_mm", 0)
+    
     for crop in CROPS_DB:
         score = 0
+        crop_states = crop.get("states", [])
 
+        # Soil type match (Strong factor: +3)
         if soil_type in crop.get("soil_types", []):
             score += 3
-        if location in crop.get("states", []) or not crop.get("states"):
+        
+        # State/Location match (Important factor: +2)
+        if (location in crop_states or 
+            state in crop_states or 
+            "India" in crop_states or 
+            not crop_states):
             score += 2
+            
+        # Season suitability (+2)
         if season in crop.get("seasons", []) or "Year-round" in crop.get("seasons", []):
             score += 2
+            
+        # Temperature compatibility (+1)
         if temperature is not None:
             tr = crop.get("temperature_range", [0, 50])
             if len(tr) >= 2 and tr[0] <= temperature <= tr[1]:
                 score += 1
+        
+        # Weather factor: Rainfall matching (+1 bonus for forecast compatibility)
+        # If high rain is forecast, prefer water-intensive crops (Rice, Sugarcane)
+        # If no rain, prefer drought-resistant (Millets, Pulses)
+        crop_rain_min = crop.get("rainfall_min", 500)
+        if forecast_rain > 20 and crop_rain_min >= 800:
+            score += 1
+        elif forecast_rain < 5 and crop_rain_min < 600:
+            score += 1
 
+        # Threshold to ensure high-quality matches while not being too restrictive
         if score >= 3:
             candidates.append({
                 "name": crop["name"],
@@ -189,31 +215,32 @@ def get_crop_recommendations(
                 "score": score,
                 "growing_duration": crop.get("growing_duration", ""),
                 "rainfall_min": crop.get("rainfall_min", 0),
+                "image": crop.get("image", "")
             })
 
     candidates.sort(key=lambda x: x["score"], reverse=True)
     candidate_names = [c["name"] for c in candidates[:10]]
 
-    # 5. Fetch market data for candidates
+    # 6. Fetch market data for candidates
     market_data = _get_market_data_for_crops(candidate_names, location)
 
-    # 6. Filter by market: exclude severely unfavorable (down > 15%)
+    # 7. Final selection: include top matches (don't strictly exclude for market, just inform)
     recommended_crops = []
     for c in candidates[:8]:
         m = market_data.get(c["name"], {})
         trend = m.get("trend", "stable")
         change = m.get("change_percent", 0)
-        if trend == "down" and change < MARKET_UNFAVORABLE_THRESHOLD:
-            continue
+        
+        # Store market data for display/advisory
         c["market_trend"] = trend
         c["market_change_percent"] = change
         c["latest_price"] = m.get("latest_price")
         recommended_crops.append(c)
 
-    # 7. Fetch climate alerts
+    # 8. Fetch climate alerts
     climate_alerts = _get_climate_alerts_summary(location)
 
-    # 8. Build structured analysis data for Gemini
+    # 9. Build structured analysis data for Gemini
     analysis_soil = soil_context if soil_context else {"soil_type": soil_type}
     analysis_weather = {
         "season": season,

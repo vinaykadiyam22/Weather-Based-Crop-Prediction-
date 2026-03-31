@@ -12,3 +12,5 @@ pillow
 numpy
 torch
 torchvision
+passlib
+bcrypt

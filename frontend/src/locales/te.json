@@ -78,7 +78,9 @@
     "dontHaveAccount": "ఖాతా లేదా?",
     "register": "నమోదు చేయండి",
     "alreadyHaveAccount": "ఇప్పటికే ఖాతా ఉందా?",
-    "signIn": "సైన్ ఇన్"
+    "signIn": "సైన్ ఇన్",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "స్వాగతం, {{name}}",
@@ -92,11 +94,12 @@
     "weatherAlerts": "వాతావరణం మరియు అలర్ట్‌లు",
     "weatherAlertsDesc": "క్లైమేట్ అప్‌డేట్‌లు",
     "diseaseDetection": "చీడపీడలు మరియు వ్యాధి గుర్తింపు",
-    "diseaseDetectionDesc": "AI-ఆధారిత స్కాన్",
-    "soilType": "మట్టి రకం",
-    "soilTypeDesc": "మట్టి లక్షణాలు",
-    "marketPrices": "మార్కెట్ ధరలు",
-    "marketPricesDesc": "ధర ధోరణులు"
+    "diseaseDetectionDesc": "ఫోటోల నుండి పంట వ్యాధులను గుర్తించండి",
+    "soilType": "మట్టి రకం గుర్తింపు",
+    "soilTypeDesc": "చిత్రాల నుండి నేల రకాన్ని నిర్ణయించండి",
+    "marketPrices": "లైవ్ మార్కెట్ ధరలు",
+    "marketPricesDesc": "ప్రస్తుత వ్యవసాయ వస్తువుల ధరలను తనిఖీ చేయండి",
+    "regionAnalytics": "ప్రాంత విశ్లేషణ (Region Analytics)"
   },
   "disease": {
     "title": "వ్యాధి గుర్తింపు",
@@ -130,7 +133,15 @@
     "duration": "వ్యవధి",
     "minRainfall": "కనిష్ట వర్షపాతం",
     "noRecommendations": "మీ పరిస్థితులకు సిఫార్సులు లేవు. వేర్వేరు పారామీటర్లు ప్రయత్నించండి.",
-    "tryDifferent": "వేర్వేరు పరిస్థితులు ప్రయత్నించండి"
+    "tryDifferent": "వేర్వేరు పరిస్థితులు ప్రయత్నించండి",
+    "predictionAnalysis": "అంచనా విశ్లేషణ (Prediction Analysis)",
+    "soilFactor": "నేల కారకం",
+    "soilCondition": "నేల పరిస్థితి",
+    "weatherFactor": "వాతావరణ కారకం",
+    "avgTemp": "సగటు ఉష్ణోగ్రత",
+    "marketFactor": "మార్కెట్ కారకం",
+    "marketTrendStable": "స్థిరంగా / పెరుగుతోంది",
+    "marketAnalysisDesc": "మీ రాష్ట్రం మరియు పంట కోసం మార్కెట్ విశ్లేషణ."
   },
   "soil": {
     "title": "మట్టి విశ్లేషణ",

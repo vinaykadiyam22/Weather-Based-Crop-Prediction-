@@ -27,7 +27,7 @@
     "home": "Home"
   },
   "landing": {
-    "title": "AI-Powered Agricultural Intelligence",
+    "title": "Weather Crop Recommendation system",
     "subtitle": "Smart crop recommendations, live Andhra Pradesh weather, mandi prices, and disease detection—built for farmers in Andhra Pradesh.",
     "startFree": "Start Free",
     "signIn": "Sign In",
@@ -78,7 +78,9 @@
     "dontHaveAccount": "Don't have an account?",
     "register": "Register",
     "alreadyHaveAccount": "Already have an account?",
-    "signIn": "Sign In"
+    "signIn": "Sign In",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "Welcome, {{name}}",
@@ -92,11 +94,12 @@
     "weatherAlerts": "Weather & Alerts",
     "weatherAlertsDesc": "Climate updates",
     "diseaseDetection": "Pest & Disease Detection",
-    "diseaseDetectionDesc": "AI-powered scan",
-    "soilType": "Soil Type",
-    "soilTypeDesc": "Soil characteristics",
-    "marketPrices": "Market Prices",
-    "marketPricesDesc": "Price trends"
+    "diseaseDetectionDesc": "ছবি থেকে ফসলের রোগ শনাক্ত করুন",
+    "soilType": "মাটির ধরন শনাক্তকরণ",
+    "soilTypeDesc": "ছবি থেকে মাটির ধরন নির্ধারণ করুন",
+    "marketPrices": "লাইভ বাজার মূল্য",
+    "marketPricesDesc": "বর্তমান কৃষি পণ্যের মূল্য যাচাই করুন",
+    "regionAnalytics": "অঞ্চল বিশ্লেষণ (Region Analytics)"
   },
   "disease": {
     "title": "Disease Detection",

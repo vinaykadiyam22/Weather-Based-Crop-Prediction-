@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import { motion } from 'framer-motion'
 import AppLayout from '../components/AppLayout'
+import InteractiveMap from '../components/InteractiveMap'
 import { FiDroplet, FiCloudRain, FiActivity, FiMapPin, FiTrendingUp } from 'react-icons/fi'
 import './Dashboard.css'
 
@@ -49,6 +50,11 @@ function Dashboard({ user, onLogout, onUserUpdate }) {
             <p className="dashboard-subtitle">{user.location}</p>
             <p className="dashboard-tip">{t('dashboard.tip')}</p>
           </motion.div>
+
+          <section className="map-section" style={{ margin: '2rem 0' }}>
+            <h2 className="section-heading" style={{ marginBottom: '1rem' }}>{t('dashboard.regionAnalytics')}</h2>
+            <InteractiveMap />
+          </section>
 
           {alerts.length > 0 && (
             <motion.section

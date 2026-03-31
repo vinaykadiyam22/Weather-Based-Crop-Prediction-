@@ -3,11 +3,11 @@
    ============================================ */
 
 :root {
-  /* Primary palette - Trust & growth */
-  --color-primary: #0d9488;
-  --color-primary-hover: #0f766e;
-  --color-primary-light: #5eead4;
-  --color-primary-muted: rgba(13, 148, 136, 0.12);
+  /* Primary palette - Navy Blue (Trust & Professionalism) */
+  --color-primary: #1e40af; /* Navy blue */
+  --color-primary-hover: #1e3a8a; /* Darker navy */
+  --color-primary-light: #60a5fa; /* Light blue accent */
+  --color-primary-muted: rgba(30, 64, 175, 0.12);
   
   /* Secondary - Professional slate */
   --color-secondary: #475569;
@@ -18,7 +18,7 @@
   --color-accent-muted: rgba(245, 158, 11, 0.12);
   
   /* Semantic */
-  --color-success: #059669;
+  --color-success: #15803d; /* Professional Green */
   --color-warning: #d97706;
   --color-error: #dc2626;
   --color-info: #0284c7;

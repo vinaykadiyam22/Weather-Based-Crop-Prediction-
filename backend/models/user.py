@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, Float, JSON
+from sqlalchemy import Column, Integer, String, DateTime, Float, JSON, Boolean
 from sqlalchemy.orm import relationship
 from database import Base
 from datetime import datetime
@@ -12,6 +12,9 @@ class User(Base):
     phone = Column(String(20), unique=True, index=True, nullable=False)
     location = Column(String(200), nullable=False)
     language = Column(String(10), default="en")  # Language preference
+    hashed_password = Column(String(255), nullable=True)
+    is_admin = Column(Boolean, default=False)
+    is_active = Column(Boolean, default=True)
     
     # Farming profile
     farm_size = Column(Float, nullable=True)  # in hectares

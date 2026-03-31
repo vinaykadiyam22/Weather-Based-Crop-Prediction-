@@ -78,7 +78,9 @@
     "dontHaveAccount": "એકાઉન્ટ નથી?",
     "register": "નોંધણી કરો",
     "alreadyHaveAccount": "પહેલેથી એકાઉન્ટ છે?",
-    "signIn": "સાઇન ઇન"
+    "signIn": "સાઇન ઇન",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password"
   },
   "dashboard": {
     "welcome": "સ્વાગત છે, {{name}}",
@@ -92,11 +94,12 @@
     "weatherAlerts": "હવામાન અને અલર્ટ",
     "weatherAlertsDesc": "આબોહવા અપડેટ",
     "diseaseDetection": "કીટક અને રોગ ઓળખ",
-    "diseaseDetectionDesc": "AI-ચાલિત સ્કેન",
-    "soilType": "માટી પ્રકાર",
-    "soilTypeDesc": "માટી લક્ષણો",
-    "marketPrices": "બજાર ભાવ",
-    "marketPricesDesc": "ભાવ ટ્રેન્ડ"
+    "diseaseDetectionDesc": "ફોટા પરથી પાકના રોગો ઓળખો",
+    "soilType": "જમીન પ્રકાર ઓળખ",
+    "soilTypeDesc": "છબીઓ પરથી જમીનનો પ્રકાર નક્કી કરો",
+    "marketPrices": "લાઇવ બજાર ભાવો",
+    "marketPricesDesc": "વર્તમાન કૃષિ પેદાશોના ભાવો તપાસો",
+    "regionAnalytics": "પ્રદેશ વિશ્લેષણ (Region Analytics)"
   },
   "disease": {
     "title": "રોગ ઓળખ",
