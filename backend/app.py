@@ -67,8 +67,13 @@ def health_check():
 
 if __name__ == "__main__":
     import uvicorn
+    import os
+    
+    # Get port from environment variable for Render (default to 8000 for local)
+    port = int(os.environ.get("PORT", 8000))
+    
     print("\n[START] Smart Crop Advisory System Backend...")
-    print("[BACKEND] http://localhost:8000")
-    print("[DOCS] http://localhost:8000/docs")
-    print("[TIP] Use 'localhost' not '0.0.0.0' to access from browser\n")
-    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
+    print(f"[BACKEND] http://0.0.0.0:{port}")
+    print(f"[DOCS] http://0.0.0.0:{port}/docs")
+    
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=False)
