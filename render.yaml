@@ -23,4 +23,4 @@ services:
     staticPublishPath: dist
     envVars:
       - key: VITE_API_BASE_URL
-        value: https://smart-crop-backend.onrender.com
+        value: https://weather-based-crop-prediction-ca49.onrender.com
