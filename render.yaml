@@ -1,26 +1,13 @@
 services:
-  # Backend Web Service
+  # Single Full-Stack Service - Backend serves both API + React Frontend
   - type: web
-    name: smart-crop-backend
+    name: smart-crop-advisory
     runtime: python
-    rootDir: backend
-    buildCommand: pip install -r requirements.txt
-    startCommand: python -m uvicorn app:app --host 0.0.0.0 --port 10000
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt && cd frontend && npm install && npm run build
+    startCommand: cd backend && python -m uvicorn app:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PORT
-        value: 10000
-      - key: DATABASE_URL
-        value: sqlite:///./crop_advisory.db
       - key: PYTHON_VERSION
         value: 3.11.10
-
-  # Frontend Static Site
-  - type: web
-    name: smart-crop-frontend
-    runtime: static
-    rootDir: frontend
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_API_BASE_URL
-        value: https://weather-based-crop-prediction-ca49.onrender.com
+      - key: DATABASE_URL
+        value: sqlite:///./crop_advisory.db
