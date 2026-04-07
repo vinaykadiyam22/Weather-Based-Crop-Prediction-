@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { FiCloudRain, FiTrendingUp, FiDroplet, FiActivity, FiDollarSign, FiGlobe } from 'react-icons/fi'
+import portalBox from '../assets/portal-box.png'
 import i18n, { SUPPORTED_LANGS, setStoredLanguage } from '../i18n'
 import './Landing.css'
 
@@ -39,40 +39,41 @@ function Landing() {
     <div className="landing">
       <div className="landing-bg" aria-hidden="true" />
 
-      <header className="landing-header">
-        <div className="container">
-          <div className="header-inner">
-            <span className="logo">🛡️ {t('brand')}</span>
-            <nav className="header-nav">
-              <select className="lang-select-inline" value={currentLang} onChange={(e) => handleLanguageChange(e.target.value)} aria-label={t('common.language')}>
-                {SUPPORTED_LANGS.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
-              </select>
-              <Link to="/about" className="btn btn-secondary">{t('nav.about')}</Link>
-              <Link to="/login" className="btn btn-secondary">{t('nav.login')}</Link>
-              <Link to="/register" className="btn btn-primary">{t('nav.getStarted')}</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
-
-      <section className="hero-app">
-        <div className="container">
-          <motion.div
-            className="hero-app-content"
-            initial={{ opacity: 0, scale: 0.9 }}
+      <section className="hero-premium">
+        <div className="container-hero">
+          <motion.div 
+            className="box-container"
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="app-logo-large">🛡️</div>
-            <h1 className="hero-title-app">Standard Secure Portal</h1>
-            <p className="hero-subtitle-app">v4.2.0 • Authorized Personal Only</p>
-            
-            <div className="app-main-actions">
-              <Link to="/login" className="btn-app-primary">{t('nav.login')}</Link>
-              <Link to="/register" className="btn-app-outline">{t('nav.getStarted')}</Link>
-              <Link to="/admin/login" className="admin-portal-link">Admin Access Portal</Link>
-            </div>
+            <div className="glow-aura"></div>
+            <img src={portalBox} alt="Crop Portal" className="premium-box-img" />
           </motion.div>
+
+          <motion.div
+            className="title-container"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+          >
+            <h1 className="main-title">Smart Crop Advisory System</h1>
+          </motion.div>
+          
+          <motion.div 
+            className="button-stack"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <Link to="/login" className="btn-premium-solid">SIGN IN</Link>
+            <Link to="/register" className="btn-premium-outline">REGISTER NEW ACCOUNT</Link>
+            <Link to="/admin/login" className="btn-premium-outline">ADMIN PORTAL CONTROL</Link>
+          </motion.div>
+
+          <div className="footer-version">
+             Standard Secure Protocol v4.2.0
+          </div>
         </div>
       </section>
 

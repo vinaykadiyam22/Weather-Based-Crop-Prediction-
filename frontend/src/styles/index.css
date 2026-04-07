@@ -3,25 +3,21 @@
    ============================================ */
 
 :root {
-  /* Social-Premium v4.2.0 Palette */
-  --color-primary: #1877f2; /* Refined Social Blue */
-  --color-primary-rgb: 24, 119, 242;
-  --color-primary-hover: #166fe5;
-  --color-primary-light: #e7f3ff;
-  --color-primary-muted: rgba(24, 119, 242, 0.08);
-  
-  --color-secondary: #f0f2f5; /* Social background gray */
-  --color-accent: #42b72a; /* Positive Green accent */
+  /* Dark Premium v4.2.0 Palette */
+  --color-primary-grad: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%); /* Purple-Blue Gradient */
+  --color-primary: #8b5cf6;
+  --color-primary-hover: #7c3aed;
   
   /* Social-styled Surfaces */
-  --color-surface: #ffffff;
-  --color-background: #f0f2f5; /* Facebook-style subtle background */
-  --color-text: #050505;
-  --color-text-secondary: #65676b;
+  --color-surface: #1e1e2e; /* Dark Surface */
+  --color-background: #0f172a; /* Midnight Blue Background */
+  --color-text: #ffffff;
+  --color-text-secondary: #94a3b8;
   
   /* Shadow Elevation */
-  --shadow-social: 0 1px 2px rgba(0, 0, 0, 0.1);
-  --shadow-premium: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-social: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-premium: 0 4px 12px rgba(139, 92, 246, 0.3);
+  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.2);
   
   /* Spacing & Sizing */
   --nav-height: 72px;
