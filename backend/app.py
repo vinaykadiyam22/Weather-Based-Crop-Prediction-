@@ -51,6 +51,7 @@ app.include_router(admin_routes.router)
 
 # Health check endpoint
 @app.get("/health")
+@app.head("/health")
 def health_check():
     return {"status": "healthy"}
 
@@ -82,11 +83,13 @@ if os.path.exists(FRONTEND_DIST):
         app.mount("/assets", StaticFiles(directory=assets_dir), name="static-assets")
 
     @app.get("/")
+    @app.head("/")
     async def serve_root():
         """Serve the React app root"""
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
 
     @app.get("/{full_path:path}")
+    @app.head("/{full_path:path}")
     async def serve_spa(full_path: str):
         """Catch-all: serve React app for all non-API routes (SPA routing)"""
         # Check if the file exists in dist (e.g. favicon.ico, manifest.json)
@@ -101,6 +104,7 @@ else:
     print("[INFO] Running backend-only mode. Build frontend to enable full-stack serving.")
 
     @app.get("/")
+    @app.head("/")
     def root():
         return {
             "message": "Smart Crop Advisory System API",
