@@ -55,19 +55,22 @@ function Landing() {
         </div>
       </header>
 
-      <section className="hero">
+      <section className="hero-app">
         <div className="container">
           <motion.div
-            className="hero-content"
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
+            className="hero-app-content"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="hero-title">Standard Secure Portal <span style={{fontSize: '0.4em', verticalAlign: 'middle', opacity: 0.8}}>v4.2.0</span></h1>
-            <p className="hero-subtitle">{t('landing.subtitle')}</p>
-            <div className="hero-actions">
-              <Link to="/register" className="btn btn-primary btn-lg">{t('landing.startFree')}</Link>
-              <Link to="/login" className="btn btn-outline btn-lg">{t('landing.signIn')}</Link>
+            <div className="app-logo-large">🛡️</div>
+            <h1 className="hero-title-app">Standard Secure Portal</h1>
+            <p className="hero-subtitle-app">v4.2.0 • Authorized Personal Only</p>
+            
+            <div className="app-main-actions">
+              <Link to="/login" className="btn-app-primary">{t('nav.login')}</Link>
+              <Link to="/register" className="btn-app-outline">{t('nav.getStarted')}</Link>
+              <Link to="/admin/login" className="admin-portal-link">Admin Access Portal</Link>
             </div>
           </motion.div>
         </div>

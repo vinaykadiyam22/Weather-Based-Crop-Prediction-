@@ -53,33 +53,88 @@
   background: var(--color-surface);
 }
 
-.hero {
-  padding: var(--space-16) 0;
-}
-
-.hero-content {
-  max-width: 640px;
-}
-
-.hero-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-4);
-}
-
-.hero-subtitle {
-  font-size: var(--text-xl);
-  color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin-bottom: var(--space-8);
-}
-
-.hero-actions {
+.hero-app {
+  padding: 15vh 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-app-content {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.app-logo-large {
+  font-size: 80px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 10px 15px rgba(24, 119, 242, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.hero-title-app {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1c1e21;
+  margin-bottom: 8px;
+}
+
+.hero-subtitle-app {
+  font-size: 14px;
+  color: #65676b;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+.app-main-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.btn-app-primary {
+  background: var(--color-primary);
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 20px -5px rgba(24, 119, 242, 0.3);
+  transition: all 0.3s;
+}
+
+.btn-app-outline {
+  padding: 16px;
+  border-radius: 12px;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.admin-portal-link {
+  font-size: 14px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 24px;
+  opacity: 0.8;
+}
+
+.admin-portal-link:hover {
+  color: var(--color-primary);
+  opacity: 1;
 }
 
 .features {
