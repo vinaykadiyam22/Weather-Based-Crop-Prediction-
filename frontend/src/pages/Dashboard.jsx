@@ -38,67 +38,71 @@ function Dashboard({ user, onLogout, onUserUpdate }) {
 
   return (
     <AppLayout user={user} onLogout={onLogout} onUserUpdate={onUserUpdate}>
-      <div className="dashboard">
+      <div className="dashboard-social">
         <div className="container">
           <motion.div
-            className="dashboard-hero"
+            className="social-status-card"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
           >
-            <h1 className="dashboard-title">{t('dashboard.welcome', { name: user.name })}</h1>
-            <p className="dashboard-subtitle">{user.location}</p>
-            <p className="dashboard-tip">{t('dashboard.tip')}</p>
+             <div className="user-avatar-circle">🌱</div>
+             <div className="status-input-trigger">
+                {t('dashboard.welcome', { name: user.name.split(' ')[0] })}! Check your latest agricultural updates...
+             </div>
           </motion.div>
 
-          <section className="map-section" style={{ margin: '2rem 0' }}>
-            <h2 className="section-heading" style={{ marginBottom: '1rem' }}>{t('dashboard.regionAnalytics')}</h2>
-            <InteractiveMap />
-          </section>
+          <div className="social-feed">
+             {/* Weather Feed Item */}
+             <motion.div className="feed-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>
+                <div className="feed-header">
+                   <FiCloudRain className="feed-icon weather" />
+                   <div>
+                      <h3 className="feed-title">{t('dashboard.weatherAlerts')}</h3>
+                      <p className="feed-meta">{user.location} • Live Now</p>
+                   </div>
+                </div>
+                <div className="feed-body">
+                   <p>{t('dashboard.weatherAlertsDesc')}</p>
+                   <Link to="/weather" className="feed-cta">{t('common.view')}</Link>
+                </div>
+             </motion.div>
 
-          {alerts.length > 0 && (
-            <motion.section
-              className="alerts-section"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
-              <h2 className="section-heading">{t('dashboard.activeAlerts')}</h2>
-              <div className="alerts-grid">
-                {alerts.map((alert) => (
-                  <Link
-                    key={alert.id}
-                    to={`/alert/${alert.id}`}
-                    className={`alert-card severity-${alert.severity}`}
-                  >
-                    <span className="alert-badge">{alert.severity}</span>
-                    <h3>{alert.title}</h3>
-                    <p>{alert.description}</p>
-                  </Link>
-                ))}
-              </div>
-            </motion.section>
-          )}
+             {/* Market Feed Item */}
+             <motion.div className="feed-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
+                <div className="feed-header">
+                   <FiTrendingUp className="feed-icon market" />
+                   <div>
+                      <h3 className="feed-title">{t('dashboard.marketPrices')}</h3>
+                      <p className="feed-meta">Current Season</p>
+                   </div>
+                </div>
+                <div className="feed-body">
+                   <p>{t('dashboard.marketPricesDesc')}</p>
+                   <Link to="/market-prices" className="feed-cta blue">{t('common.view')}</Link>
+                </div>
+             </motion.div>
 
-          <section className="features-section">
-            <h2 className="section-heading">{t('dashboard.tools')}</h2>
-            <div className="features-grid">
-              {FEATURES.map((feat, i) => (
-                <motion.div
-                  key={feat.path}
-                  initial={{ opacity: 0, y: 16 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05 }}
-                >
-                  <Link to={feat.path} className="feature-card">
-                    <div className="feature-icon">
-                      <feat.icon size={24} />
-                    </div>
-                    <h3>{feat.title}</h3>
-                    <p>{feat.desc}</p>
-                  </Link>
-                </motion.div>
-              ))}
+             {/* Tools Feed Item */}
+             <motion.div className="feed-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+                <div className="feed-header">
+                   <FiActivity className="feed-icon tools" />
+                   <div>
+                      <h3 className="feed-title">{t('dashboard.tools')}</h3>
+                      <p className="feed-meta">AI-Powered Analysis</p>
+                   </div>
+                </div>
+                <div className="feed-body tools-list">
+                    <Link to="/crop-recommendation" className="tool-chip">{t('dashboard.cropRecommendation')}</Link>
+                    <Link to="/soil-analysis" className="tool-chip">{t('dashboard.soilAnalysis')}</Link>
+                    <Link to="/disease-detection" className="tool-chip">{t('dashboard.diseaseDetection')}</Link>
+                </div>
+             </motion.div>
+          </div>
+          
+          <section className="map-section-social">
+            <h2 className="section-heading">{t('dashboard.regionAnalytics')}</h2>
+            <div className="social-card-map">
+               <InteractiveMap />
             </div>
           </section>
         </div>
