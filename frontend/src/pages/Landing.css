@@ -1,5 +1,5 @@
 /* ============================================
-   Smart Crop Advisory - Dark Premium UI
+   Smart Crop Advisory - Agricultural Premium UI
    ============================================ */
 
 .landing {
@@ -28,25 +28,25 @@
   align-items: center;
 }
 
-/* Glowing Image Box */
+/* Glowing Image Box - Lush Green Style */
 .box-container {
   position: relative;
   width: 280px;
   height: 280px;
-  background: rgba(30, 41, 59, 0.5);
+  background: rgba(21, 128, 61, 0.05); /* Soft transparent green */
   border-radius: 48px;
   padding: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 3rem;
-  border: 1px solid rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(21, 128, 61, 0.1);
 }
 
 .glow-aura {
   position: absolute;
   inset: -10px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(21, 128, 61, 0.2) 0%, transparent 70%);
   filter: blur(20px);
   z-index: -1;
   border-radius: 60px;
@@ -57,7 +57,7 @@
   height: 100%;
   object-fit: cover;
   border-radius: 32px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 40px rgba(21, 128, 61, 0.2);
 }
 
 /* Title */
@@ -66,11 +66,11 @@
 }
 
 .main-title {
-  font-size: 40px;
+  font-size: 38px;
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.01em;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 /* Button Stack */
@@ -91,7 +91,7 @@
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 10px 25px rgba(21, 128, 61, 0.3);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
@@ -100,8 +100,8 @@
 }
 
 .btn-premium-outline {
-  background: rgba(30, 41, 59, 0.3);
-  color: #c084fc; /* Light purple for better visibility on dark */
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-primary); 
   padding: 20px;
   border-radius: 20px;
   font-size: 16px;
@@ -109,12 +109,12 @@
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: 2px solid rgba(139, 92, 246, 0.3);
+  border: 2px solid rgba(21, 128, 61, 0.3);
   transition: all 0.3s;
 }
 
 .btn-premium-outline:active {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(21, 128, 61, 0.05);
   transform: scale(0.96);
 }
 
@@ -122,14 +122,14 @@
 .footer-version {
   margin-top: 4rem;
   font-size: 14px;
-  color: rgba(148, 163, 184, 0.4);
+  color: rgba(6, 78, 59, 0.3);
   font-weight: 500;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 480px) {
   .main-title {
-    font-size: 32px;
+    font-size: 30px;
   }
   .box-container {
     width: 220px;

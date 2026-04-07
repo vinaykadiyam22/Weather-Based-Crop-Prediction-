@@ -3,21 +3,22 @@
    ============================================ */
 
 :root {
-  /* Dark Premium v4.2.0 Palette */
-  --color-primary-grad: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%); /* Purple-Blue Gradient */
-  --color-primary: #8b5cf6;
-  --color-primary-hover: #7c3aed;
+  /* Agricultural Premium v4.2.0 Palette */
+  --color-primary-grad: linear-gradient(90deg, #15803d 0%, #059669 100%); /* Forest Green Gradient */
+  --color-primary: #15803d;
+  --color-primary-hover: #166534;
+  --color-accent: #f59e0b; /* Harvest Gold */
   
-  /* Social-styled Surfaces */
-  --color-surface: #1e1e2e; /* Dark Surface */
-  --color-background: #0f172a; /* Midnight Blue Background */
-  --color-text: #ffffff;
-  --color-text-secondary: #94a3b8;
+  /* Lush Light Surfaces */
+  --color-surface: #ffffff;
+  --color-background: #f0fdf4; /* Very Light Green background */
+  --color-text: #064e3b; /* Deep Green Text */
+  --color-text-secondary: #065f46;
   
   /* Shadow Elevation */
-  --shadow-social: 0 4px 20px rgba(0, 0, 0, 0.3);
-  --shadow-premium: 0 4px 12px rgba(139, 92, 246, 0.3);
-  --shadow-glow: 0 0 25px rgba(99, 102, 241, 0.2);
+  --shadow-social: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 4px 12px rgba(21, 128, 61, 0.15);
+  --shadow-glow: 0 0 25px rgba(21, 128, 61, 0.1);
   
   /* Spacing & Sizing */
   --nav-height: 72px;
