@@ -1,6 +1,6 @@
-import { Link, useLocation } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { FiMenu, FiX, FiLogOut } from 'react-icons/fi'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiMenu, FiX, FiLogOut, FiHome, FiCloud, FiPieChart, FiShoppingBag } from 'react-icons/fi'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import axios from 'axios'
@@ -113,6 +113,27 @@ function AppLayout({ children, user, onLogout, onUserUpdate }) {
       <main className="app-main">
         {children}
       </main>
+
+      {/* Bottom Navigation for Mobile */}
+      <nav className="mobile-bottom-nav">
+        <Link to="/dashboard" className={`mobile-nav-item ${isActive('/dashboard') ? 'active' : ''}`}>
+          <FiHome />
+          <span>Dashboard</span>
+        </Link>
+        <Link to="/weather" className={`mobile-nav-item ${isActive('/weather') ? 'active' : ''}`}>
+          <FiCloud />
+          <span>Weather</span>
+        </Link>
+        <Link to="/crop-recommendation" className={`mobile-nav-item ${isActive('/crop-recommendation') ? 'active' : ''}`}>
+          <FiPieChart />
+          <span>Crops</span>
+        </Link>
+        <Link to="/market-prices" className={`mobile-nav-item ${isActive('/market-prices') ? 'active' : ''}`}>
+          <FiShoppingBag />
+          <span>Mandi</span>
+        </Link>
+      </nav>
+
       <footer className="app-footer-minimal">
         <div className="container">
           <p>© 2026 Standard Secure Portal • v4.2.0</p>
