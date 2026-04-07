@@ -1,7 +1,6 @@
 # Node modules
 node_modules/
-dist/
-dist-ssr/
+
 *.local
 
 # Python
@@ -14,7 +13,7 @@ ENV/
 env/
 build/
 develop-eggs/
-dist/
+
 downloads/
 eggs/
 .eggs/
