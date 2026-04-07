@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(15, 23, 42, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
   z-index: 1;
 }
 
@@ -30,12 +30,13 @@
 }
 
 .auth-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   padding: 2.5rem;
-  border-radius: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-premium);
+  box-shadow: var(--shadow-premium);
+  border: 1px solid var(--glass-border);
 }
 
 .auth-header {
@@ -134,7 +135,7 @@
 }
 
 .btn-primary.btn-block {
-  background: #10b981;
+  background: var(--color-primary);
   color: white;
   padding: 1rem;
   font-weight: 700;
@@ -144,14 +145,14 @@
   cursor: pointer;
   width: 100%;
   font-size: 1.1rem;
-  box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
-  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .btn-primary.btn-block:hover {
-  background: #059669;
-  transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(16, 185, 129, 0.2);
+  background: var(--color-primary-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(30, 64, 175, 0.2);
 }
 
 .btn-primary.btn-block:disabled {

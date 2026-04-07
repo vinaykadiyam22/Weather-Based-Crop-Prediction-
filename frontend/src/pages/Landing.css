@@ -6,8 +6,9 @@
 .landing-bg {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(240, 253, 250, 0.97) 0%, rgba(248, 250, 252, 0.98) 50%, #f1f5f9 100%),
-    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920') center/cover no-repeat;
+  background: linear-gradient(-45deg, #f0fdfa, #eff6ff, #f8fafc, #f0fdf4);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
   z-index: -1;
 }
 
@@ -99,16 +100,19 @@
 }
 
 .feature-card {
-  background: var(--color-surface);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   padding: var(--space-8);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(0,0,0,0.04);
-  transition: box-shadow var(--duration-normal);
+  border-radius: var(--radius-premium);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-premium);
+  transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
 }
 
 .feature-card:hover {
-  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .feature-card-icon {
