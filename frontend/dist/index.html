@@ -2,17 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Smart Crop Advisory System - AI-powered agricultural decision support for Indian farmers" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <title>Weather Based Crop Prediction System</title>
-    <script type="module" crossorigin src="/assets/index-4PLc_e9O.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CHF-dD51.css">
+    <title>Standard Secure Portal v4.2.0</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/logo192.png">
+    <script type="module" crossorigin src="/assets/index-C9rC06xX.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D5jCrz6R.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
+    <div id="splash-screen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #f8fafc; flex-direction: column; z-index: 9999;">
+       <div style="font-size: 64px; margin-bottom: 24px;">🛡️</div>
+       <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; color: #1e40af; font-size: 24px;">Standard Secure Portal</div>
+       <div style="font-family: 'Plus Jakarta Sans', sans-serif; color: #94a3b8; font-size: 14px; margin-top: 8px;">Version 4.2.0</div>
+    </div>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash-screen');
+          if (splash) splash.style.display = 'none';
+        }, 1000);
+      });
+    </script>
   </body>
 </html>
