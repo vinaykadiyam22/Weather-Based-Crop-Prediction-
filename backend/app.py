@@ -11,6 +11,9 @@ import mimetypes
 mimetypes.add_type("application/javascript", ".js")
 mimetypes.add_type("text/css", ".css")
 mimetypes.add_type("image/svg+xml", ".svg")
+mimetypes.add_type("application/json", ".json")
+mimetypes.add_type("application/manifest+json", ".webmanifest")
+mimetypes.add_type("application/manifest+json", ".json")
 # Import routes
 from routes import auth, disease_detection, soil_analysis, crop_recommendation, weather, market_prices
 from routes import map_intelligence
@@ -103,7 +106,7 @@ if os.path.exists(FRONTEND_DIST):
             return FileResponse(file_path)
         
         # If it's a request for an asset that doesn't exist, return 404 Instead of index.html
-        if full_path.startswith("assets/") or full_path.endswith((".js", ".css", ".png", ".jpg", ".svg", ".ico")):
+        if full_path.startswith("assets/") or full_path.endswith((".js", ".css", ".png", ".jpg", ".svg", ".ico", ".json", ".webmanifest")):
             from fastapi import HTTPException
             raise HTTPException(status_code=404, detail="Asset not found")
 
