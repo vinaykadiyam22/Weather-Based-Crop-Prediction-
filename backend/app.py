@@ -5,7 +5,12 @@ from fastapi.responses import FileResponse
 from database import init_db
 from config import get_settings
 import os
+import mimetypes
 
+# Fix mime types specifically for Windows/Render edge cases
+mimetypes.add_type("application/javascript", ".js")
+mimetypes.add_type("text/css", ".css")
+mimetypes.add_type("image/svg+xml", ".svg")
 # Import routes
 from routes import auth, disease_detection, soil_analysis, crop_recommendation, weather, market_prices
 from routes import map_intelligence
@@ -96,6 +101,12 @@ if os.path.exists(FRONTEND_DIST):
         file_path = os.path.join(FRONTEND_DIST, full_path)
         if os.path.isfile(file_path):
             return FileResponse(file_path)
+        
+        # If it's a request for an asset that doesn't exist, return 404 Instead of index.html
+        if full_path.startswith("assets/") or full_path.endswith((".js", ".css", ".png", ".jpg", ".svg", ".ico")):
+            from fastapi import HTTPException
+            raise HTTPException(status_code=404, detail="Asset not found")
+
         # For all other routes, return index.html (React Router handles it)
         return FileResponse(os.path.join(FRONTEND_DIST, "index.html"))
 
