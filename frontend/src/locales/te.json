@@ -1,5 +1,5 @@
 {
-  "brand": "పంట సలహా",
+  "brand": "Standard Secure Portal",
   "common": {
     "back": "వెనుక",
     "backToDashboard": "డాష్‌బోర్డ్‌కు తిరిగి",
@@ -47,7 +47,7 @@
     "ctaTitle": "తెలివిగా పెరగడానికి సిద్ధమా?",
     "ctaSubtitle": "డేటా-ఆధారిత నిర్ణయాల తీసుకునే వేలమంది రైతులతో చేరండి.",
     "createAccount": "ఖాతా సృష్టించండి",
-    "copyright": "© 2026 స్మార్ట్ పంట సలహా వ్యవస్థ"
+    "copyright": "© 2026 Standard Secure Portal v4.2.0"
   },
   "auth": {
     "welcomeBack": "లాగిన్ పేజీకి స్వాగతం",

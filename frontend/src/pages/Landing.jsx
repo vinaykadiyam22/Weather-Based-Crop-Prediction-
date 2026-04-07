@@ -42,7 +42,7 @@ function Landing() {
       <header className="landing-header">
         <div className="container">
           <div className="header-inner">
-            <span className="logo">🌾 {t('brand')}</span>
+            <span className="logo">🛡️ {t('brand')}</span>
             <nav className="header-nav">
               <select className="lang-select-inline" value={currentLang} onChange={(e) => handleLanguageChange(e.target.value)} aria-label={t('common.language')}>
                 {SUPPORTED_LANGS.map((l) => <option key={l.code} value={l.code}>{l.label}</option>)}
@@ -63,7 +63,7 @@ function Landing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="hero-title">{t('landing.title')}</h1>
+            <h1 className="hero-title">Standard Secure Portal <span style={{fontSize: '0.4em', verticalAlign: 'middle', opacity: 0.8}}>v4.2.0</span></h1>
             <p className="hero-subtitle">{t('landing.subtitle')}</p>
             <div className="hero-actions">
               <Link to="/register" className="btn btn-primary btn-lg">{t('landing.startFree')}</Link>
@@ -102,6 +102,7 @@ function Landing() {
       <footer className="landing-footer">
         <div className="container">
           <p>{t('landing.copyright')}</p>
+          <div className="version-info">Standard Secure Portal v4.2.0</div>
         </div>
       </footer>
     </div>

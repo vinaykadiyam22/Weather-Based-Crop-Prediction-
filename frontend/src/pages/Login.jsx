@@ -44,10 +44,10 @@ function Login({ onLogin }) {
         <div className="auth-card premium-shadow">
           <div className="auth-header">
             <div className="auth-logo">
-               <div className="logo-icon">🌱</div>
+               <div className="logo-icon">🛡️</div>
             </div>
-            <h1 className="auth-title">{t('auth.welcomeBack')}</h1>
-            <p className="auth-subtitle">{t('auth.signInSubtitle')}</p>
+            <h1 className="auth-title">Standard Secure Portal</h1>
+            <p className="auth-subtitle">v4.2.0 Authorized Access Only</p>
           </div>
 
           {error && (

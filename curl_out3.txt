@@ -1,0 +1,50 @@
+* Host weather-based-crop-prediction.onrender.com:443 was resolved.
+* IPv6: (none)
+* IPv4: 216.24.57.251, 216.24.57.7
+*   Trying 216.24.57.251:443...
+* schannel: disabled automatic use of client certificate
+* ALPN: curl offers http/1.1
+* ALPN: server accepted http/1.1
+* Established connection to weather-based-crop-prediction.onrender.com (216.24.57.251 port 443) from 192.168.206.151 port 54354 
+* using HTTP/1.x
+> GET /assets/index-4PLc_e9O.js HTTP/1.1
+
+> Host: weather-based-crop-prediction.onrender.com
+
+> User-Agent: curl/8.18.0
+
+> Accept: */*
+
+> 
+
+* Request completely sent off
+* schannel: remote party requests renegotiation
+* schannel: renegotiating SSL/TLS connection
+* schannel: SSL/TLS connection renegotiated
+< HTTP/1.1 404 Not Found
+
+< Date: Tue, 07 Apr 2026 12:38:18 GMT
+
+< Content-Type: application/json
+
+< Transfer-Encoding: chunked
+
+< Connection: keep-alive
+
+< rndr-id: 86559cec-e98c-4119
+
+< vary: Accept-Encoding
+
+< x-render-origin-server: uvicorn
+
+< cf-cache-status: DYNAMIC
+
+< Server: cloudflare
+
+< CF-RAY: 9e8916a9bf18ffa5-BOM
+
+< alt-svc: h3=":443"; ma=86400
+
+< 
+
+* Connection #0 to host weather-based-crop-prediction.onrender.com:443 left intact

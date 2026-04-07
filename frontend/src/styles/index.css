@@ -396,3 +396,24 @@ h6 { font-size: var(--text-base); }
     --text-2xl: 1.25rem;
   }
 }
+/* Version Info Styling */
+.version-info {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.app-footer-minimal {
+  padding: var(--space-4) 0;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+  background: var(--color-background);
+}
+
+.app-footer-minimal p {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}

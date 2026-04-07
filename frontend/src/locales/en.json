@@ -1,5 +1,5 @@
 {
-  "brand": "Crop Recommendation System",
+  "brand": "Standard Secure Portal",
   "common": {
     "back": "Back",
     "backToDashboard": "Back to Dashboard",
@@ -47,7 +47,7 @@
     "ctaTitle": "Ready to grow smarter?",
     "ctaSubtitle": "Join thousands of farmers making data-driven decisions.",
     "createAccount": "Create Account",
-    "copyright": "© 2026 Smart Crop Advisory System"
+    "copyright": "© 2026 Standard Secure Portal v4.2.0"
   },
   "auth": {
     "welcomeBack": "Welcome to login page",

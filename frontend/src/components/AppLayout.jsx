@@ -34,8 +34,8 @@ function AppLayout({ children, user, onLogout, onUserUpdate }) {
       <header className="app-nav">
         <div className="nav-container">
           <Link to="/dashboard" className="nav-brand">
-            <span className="brand-icon">🌾</span>
-            <span className="brand-text">{t('brand')}</span>
+            <span className="brand-icon">🛡️</span>
+            <span className="brand-text">{t('brand')} <small style={{fontSize: '0.6em', opacity: 0.7}}>v4.2.0</small></span>
           </Link>
 
           <nav className="nav-links">
@@ -113,6 +113,11 @@ function AppLayout({ children, user, onLogout, onUserUpdate }) {
       <main className="app-main">
         {children}
       </main>
+      <footer className="app-footer-minimal">
+        <div className="container">
+          <p>© 2026 Standard Secure Portal • v4.2.0</p>
+        </div>
+      </footer>
     </div>
   )
 }
