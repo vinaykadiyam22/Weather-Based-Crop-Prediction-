@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import portalBox from '../assets/portal-crop.png'
+import { FiCloudRain, FiTrendingUp, FiDroplet, FiActivity, FiDollarSign, FiGlobe } from 'react-icons/fi'
 import i18n, { SUPPORTED_LANGS, setStoredLanguage } from '../i18n'
 import './Landing.css'
 
