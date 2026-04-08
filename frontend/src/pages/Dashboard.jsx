@@ -51,6 +51,14 @@ function Dashboard({ user, onLogout, onUserUpdate }) {
              </div>
           </motion.div>
 
+          <div className="portal-intelligence-bar">
+             <div className="intel-badge">
+                <span className="live-dot"></span>
+                Authorized Connection: SECURE
+             </div>
+             <div className="intel-time">v4.2.0 • {new Date().toLocaleDateString()} SYNCED</div>
+          </div>
+
           <div className="social-feed">
              {/* Weather Feed Item */}
              <motion.div className="feed-item" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }}>

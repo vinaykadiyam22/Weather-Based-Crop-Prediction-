@@ -117,20 +117,20 @@ function AppLayout({ children, user, onLogout, onUserUpdate }) {
       {/* Bottom Navigation for Mobile */}
       <nav className="mobile-bottom-nav">
         <Link to="/dashboard" className={`mobile-nav-item ${isActive('/dashboard') ? 'active' : ''}`}>
-          <FiHome />
-          <span>Dashboard</span>
+          <motion.div whileTap={{ scale: 0.9 }} className="mobile-nav-icon"><FiHome /></motion.div>
+          <span>Feed</span>
         </Link>
         <Link to="/weather" className={`mobile-nav-item ${isActive('/weather') ? 'active' : ''}`}>
-          <FiCloud />
+          <motion.div whileTap={{ scale: 0.9 }} className="mobile-nav-icon"><FiCloud /></motion.div>
           <span>Weather</span>
         </Link>
         <Link to="/crop-recommendation" className={`mobile-nav-item ${isActive('/crop-recommendation') ? 'active' : ''}`}>
-          <FiPieChart />
+          <motion.div whileTap={{ scale: 0.9 }} className="mobile-nav-icon"><FiPieChart /></motion.div>
           <span>Crops</span>
         </Link>
         <Link to="/market-prices" className={`mobile-nav-item ${isActive('/market-prices') ? 'active' : ''}`}>
-          <FiShoppingBag />
-          <span>Mandi</span>
+          <motion.div whileTap={{ scale: 0.9 }} className="mobile-nav-icon"><FiShoppingBag /></motion.div>
+          <span>Market</span>
         </Link>
       </nav>
 
