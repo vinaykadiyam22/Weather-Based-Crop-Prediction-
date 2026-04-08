@@ -2,9 +2,9 @@
 node_modules/
 
 *.local
-dist/
-dist-ssr/
-build/
+# dist/
+# dist-ssr/
+# build/
 
 # Python
 __pycache__/
